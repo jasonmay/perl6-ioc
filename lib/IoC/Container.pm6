@@ -12,4 +12,8 @@ class IoC::Container {
     method fetch($service-name) {
         return %!services{$service-name};
     }
+
+    method resolve(:$service) {
+        return self.fetch($service).get;
+    }
 };

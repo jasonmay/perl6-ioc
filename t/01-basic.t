@@ -6,7 +6,7 @@ use IoC::BlockInjection;
 use IoC::Literal;
 use Test;
 
-plan 5;
+plan 6;
 
 my $c = IoC::Container.new();
 
@@ -45,8 +45,11 @@ $c.add-service(
 ok($c.fetch('foo').get);
 ok($c.fetch('bar').get);
 
+ok($c.resolve(service => 'foo'));
+
 ok($c.fetch('foo').get.bar);
 
 is($c.fetch('foo').get.bar, $c.fetch('bar').get);
 
 is($c.fetch('baz').get, 'My name is Jason');
+
