@@ -3,6 +3,7 @@ module IoC;
 use IoC::Container;
 use IoC::ConstructorInjection;
 use IoC::BlockInjection;
+use IoC::Literal;
 
 my %containers;
 my $container-name;
@@ -26,8 +27,13 @@ sub container($pair) is export {
 sub contains(Block $sub) is export { return $sub }
 
 sub service($pair) is export {
-    my %params = ('name' => $pair.key, $pair.value.pairs);
-
+    my %params = ('name' => $pair.key);
+    if $pair.value.^isa('Str') {
+        %params<value> = $pair.value;
+    }
+    else {
+        %params = (%params, $pair.value.pairs);
+    }
 
     my $service-class;
     if %params<block> {
@@ -35,6 +41,9 @@ sub service($pair) is export {
     }
     elsif %params<class> {
         $service-class = 'IoC::ConstructorInjection';
+    }
+    elsif %params<value> {
+        $service-class = 'IoC::Literal';
     }
     else {
         warn "Service {$pair.key} needs more parameters";

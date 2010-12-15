@@ -3,9 +3,10 @@ BEGIN { @*INC.push('lib') };
 use IoC::Container;
 use IoC::ConstructorInjection;
 use IoC::BlockInjection;
+use IoC::Literal;
 use Test;
 
-plan 4;
+plan 5;
 
 my $c = IoC::Container.new();
 
@@ -32,8 +33,20 @@ $c.add-service(
     )
 );
 
+$c.add-service(
+    'baz', IoC::Literal.new(
+        :lifecycle('Singleton'),
+        :value('My name is Jason'),
+    )
+);
+
+
+
 ok($c.fetch('foo').get);
 ok($c.fetch('bar').get);
 
 ok($c.fetch('foo').get.bar);
+
 is($c.fetch('foo').get.bar, $c.fetch('bar').get);
+
+is($c.fetch('baz').get, 'My name is Jason');
