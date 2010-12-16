@@ -17,3 +17,99 @@ class IoC::Container {
         return self.fetch($service).get;
     }
 };
+
+=head1 NAME
+
+IoC::Cnotainer
+
+=head1 SYNOPSIS
+
+my $c = IoC::Container.new();
+
+  $c.add-service(
+      'logfile', IoC::Literal.new(
+          :lifecycle('Singleton'),
+          :value('logfile.txt'),
+      )
+  );
+
+  $c.add-service(
+      'logger', IoC::ConstructorInjection.new(
+          :class('Foo'),
+          :lifecycle('Singleton'),
+          :dependencies({
+              'logfile' => 'logfile',
+          }),
+      )
+  );
+
+  $c.add-service(
+      'storage', IoC::BlockInjection.new(
+          :lifecycle('Singleton'),
+          :block(sub {
+              ...
+              return MyStorage.new;
+          }),
+      )
+  );
+
+  $c.add-service(
+      'app', IoC::BlockInjection.new(
+          :class('MyApp'),
+          :lifecycle('Singleton'),
+          :dependencies({
+              'logger'  => 'logger',
+              'storage' => 'storage',
+          }),
+      )
+  );
+
+=head1 DESCRIPTION
+
+Used in the container class for each component. See L<IoC::Container>
+for an example of use of this class.
+
+See L<IoC> for a more sweetened way to build your container.
+
+=head1 METHODS
+
+=over 4
+
+=item add-service(C<$name>, C<$service>)
+
+Adds a service (L<IoC::Service> object) to your container
+
+=item fetch('<service>')
+
+Returns the service provided by the string.
+
+=item resolve(service => '<service>')
+
+Returns the object the service generates (equivalent to C<fetch('<service>').get()>)
+
+=back
+
+=head1 BUGS
+
+All complex software has bugs lurking in it, and this module is no
+exception. If you find a bug please either email me, or post an issue
+to http://github.com/jasonmay/perl6-ioc/
+
+=head1 REFERENCE
+
+=over 4
+
+=item L<IoC::Service>
+
+=back
+
+=head1 AUTHOR
+
+Jason May, E<lt>jason.a.may@gmail.comE<gt>
+
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut

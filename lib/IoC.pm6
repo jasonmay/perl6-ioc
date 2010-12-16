@@ -70,22 +70,23 @@ IoC - Wire your application components together using inversion of control
       service 'logfile' => 'logfile.txt';
 
       service 'logger' => {
-          'class'      => 'MyLogger',
-          lifecycle    => 'Singleton',
-          dependencies => {'title' => 'title'},
+          'class'        => 'MyLogger',
+          'lifecycle'    => 'Singleton',
+          'dependencies' => {'logfile' => 'logfile'},
       };
 
       service 'storage' => {
-          lifecycle => 'Singleton',
-          'block' => sub {
+          'lifecycle' => 'Singleton',
+          'block'     => sub {
+              ...
               return MyStorage.new();
           },
       };
 
       service 'app' => {
-          class        => 'MyApp',
-          lifecycle    => 'Signleton',
-          dependencies => {
+          'class'        => 'MyApp',
+          'lifecycle'    => 'Signleton',
+          'dependencies' => {
               'logger'  => 'logger',
               'storage' => 'storage',
           },
@@ -109,6 +110,9 @@ IoC is a port of stevan++'s Perl 5 module Bread::Board
 Creates a new L<IoC::Container> object. In the block you create your services.
 
 =item B<service>
+
+Adds services to your container, bringing your components together. See
+C<IoC::Service> for more information on this.
 
 =back
 
