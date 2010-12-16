@@ -99,7 +99,14 @@ IoC - Wire your application components together using inversion of control
 
 =head1 DESCRIPTION
 
-IoC is a port of stevan++'s Perl 5 module Bread::Board
+IoC is a port of stevan++'s Perl 5 module Bread::Board.
+
+=head1 INVERSION OF CONTROL
+
+Inversion of control is a way of keeping all your component creation logic in
+one place. Instead of creating an object and explicitly pass it around everywhere,
+one could just make a I<container> of all these components and allow the components to
+cleanly interact with each other as I<services>.
 
 =head1 EXPORTED FUNCTIONS
 
@@ -115,8 +122,6 @@ Adds services to your container, bringing your components together. See
 C<IoC::Service> for more information on this.
 
 =back
-
-=over 4
 
 =head1 BUGS
 
