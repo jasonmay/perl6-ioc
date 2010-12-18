@@ -50,8 +50,7 @@ sub service($pair) is export {
         return;
     }
 
-    my $service = eval("{$service-class}.new(|%params)");
-    #my $service = $service-class.new(|%params);
+    my $service = $service-class.new(|%params);
 
     %containers{$container-name}.add-service($pair.key, $service);
 }
