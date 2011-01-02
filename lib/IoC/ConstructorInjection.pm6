@@ -22,7 +22,7 @@ class IoC::ConstructorInjection does IoC::Service {
             %params{$pair.key} = $!container.fetch($pair.value).get();
         };
 
-        return $!class.new(|%params);
+        return eval("{$!class}.new(|%params)");
     }
 };
 
