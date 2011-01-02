@@ -18,6 +18,8 @@ class IoC::Container {
     }
 };
 
+=begin
+
 =head1 NAME
 
 IoC::Cnotainer
@@ -112,4 +114,4 @@ Jason May, E<lt>jason.a.may@gmail.comE<gt>
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
-=cut
+=end
