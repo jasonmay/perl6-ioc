@@ -35,22 +35,20 @@ sub service($pair) is export {
         %params = (%params, $pair.value.pairs);
     }
 
-    my $service-class;
+    my $service;
     if %params<block> {
-        $service-class = 'IoC::BlockInjection';
+        $service = IoC::BlockInjection.new(|%params);
     }
     elsif %params<class> {
-        $service-class = 'IoC::ConstructorInjection';
+        $service = IoC::ConstructorInjection.new(|%params);
     }
     elsif %params<value> {
-        $service-class = 'IoC::Literal';
+        $service = IoC::Literal.new(|%params);
     }
     else {
         warn "Service {$pair.key} needs more parameters";
         return;
     }
-
-    my $service = $service-class.new(|%params);
 
     %containers{$container-name}.add-service($pair.key, $service);
 }
