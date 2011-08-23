@@ -1,5 +1,5 @@
 class IoC::Container {
-    has %!services = ();
+    has %!services;
 
     method add-service($name, $service) {
         if $service.^can('container') {
@@ -22,7 +22,7 @@ class IoC::Container {
 
 =head1 NAME
 
-IoC::Cnotainer
+IoC::Container
 
 =head1 SYNOPSIS
 

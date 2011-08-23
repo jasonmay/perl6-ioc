@@ -15,7 +15,7 @@ sub container($pair) is export {
 
     $container-name = $pair.key;
     
-    unless $pair.value.^isa('Block') {
+    unless $pair.value ~~ Callable {
         die "Second param must be invocable";
     }
 
@@ -28,7 +28,7 @@ sub contains(Block $sub) is export { return $sub }
 
 sub service($pair) is export {
     my %params = ('name' => $pair.key);
-    if $pair.value.^isa('Str') {
+    if $pair.value ~~ Str {
         %params<value> = $pair.value;
     }
     else {
@@ -133,7 +133,7 @@ to http://github.com/jasonmay/perl6-ioc/
 
 =item L<IoC::Container> - Container of all your application components
 
-=item L<IoC::Service> - Serice representing a component in your application
+=item L<IoC::Service> - Service representing a component in your application
 
 =back
 

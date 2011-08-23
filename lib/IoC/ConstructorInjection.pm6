@@ -1,14 +1,14 @@
 use IoC::Service;
 class IoC::ConstructorInjection does IoC::Service {
     has Str $.class;
-    has     %.dependencies = ();
+    has     %.dependencies;
     has     %.parameters;
     has     $.container is rw;
 
     method get {
-        if ($.lifecycle eq 'Singleton') {
+        if $.lifecycle eq 'Singleton' {
             return (
-                $.instance ||= self.build-instance();
+                $.instance || self.initialize(self.build-instance());
             );
         }
 
@@ -22,7 +22,7 @@ class IoC::ConstructorInjection does IoC::Service {
             %params{$pair.key} = $!container.fetch($pair.value).get();
         };
 
-        return eval("{$!class}.new(|%params)");
+        return ::($!class).new(|%params);
     }
 };
 

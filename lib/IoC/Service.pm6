@@ -4,6 +4,13 @@ role IoC::Service {
 
     # for singletons
     has Any $.instance;
+
+    method initialize($new) {
+        if $.instance {
+            die "Instance of $.name already initialized"
+        }
+        $!instance = $new;
+    }
 };
 
 =begin pod
