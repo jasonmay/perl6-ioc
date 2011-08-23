@@ -4,9 +4,9 @@ class IoC::BlockInjection does IoC::Service {
     has $.class;
 
     method get {
-        if ($!lifecycle eq 'Singleton') {
+        if ($.lifecycle eq 'Singleton') {
             return (
-                $!instance ||= $!block.();
+                $.instance ||= $!block.();
             );
         }
 
