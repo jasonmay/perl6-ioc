@@ -6,9 +6,9 @@ class IoC::ConstructorInjection does IoC::Service {
     has     $.container is rw;
 
     method get {
-        if ($!lifecycle eq 'Singleton') {
+        if ($.lifecycle eq 'Singleton') {
             return (
-                $!instance ||= self.build-instance();
+                $.instance ||= self.build-instance();
             );
         }
 

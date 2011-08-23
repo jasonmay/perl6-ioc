@@ -1,9 +1,9 @@
 role IoC::Service {
     has Str $.name is rw;
-    has Str $!lifecycle;
+    has Str $.lifecycle;
 
     # for singletons
-    has Any $!instance;
+    has Any $.instance;
 };
 
 =begin pod
