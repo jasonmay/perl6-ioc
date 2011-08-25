@@ -1,7 +1,6 @@
 use IoC::Service;
 class IoC::BlockInjection does IoC::Service {
-    has Sub $.block;
-    has $.class;
+    has Callable $.block;
 
     method get {
         if $.lifecycle eq 'Singleton' {

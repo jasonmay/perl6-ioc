@@ -1,6 +1,6 @@
 use IoC::Service;
 class IoC::ConstructorInjection does IoC::Service {
-    has Str $.class;
+    has     $.type;
     has     %.dependencies;
     has     %.parameters;
     has     $.container is rw;
@@ -22,7 +22,7 @@ class IoC::ConstructorInjection does IoC::Service {
             %params{$pair.key} = $!container.fetch($pair.value).get();
         };
 
-        return ::($!class).new(|%params);
+        return $!type.new(|%params);
     }
 };
 

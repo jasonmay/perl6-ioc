@@ -15,7 +15,7 @@ class Foo { has Bar $.bar; };
 
 $c.add-service(
     'foo', IoC::ConstructorInjection.new(
-        :class('Foo'),
+        :type(Foo),
         :lifecycle('Singleton'),
         :dependencies({
             'bar' => 'bar',
@@ -25,7 +25,7 @@ $c.add-service(
 
 $c.add-service(
     'bar', IoC::BlockInjection.new(
-        :class('Bar'),
+        :type(Bar),
         :lifecycle('Singleton'),
         :block(sub {
             return Bar.new;

@@ -9,7 +9,7 @@ class Foo { has Bar $.bar; };
 my $c = container 'mycont' => contains {
     service 'foo' => {
         lifecycle => 'Singleton',
-        'class' => 'Foo',
+        type => Foo,
         dependencies => {'bar' => 'bar'},
     };
 
