@@ -43,13 +43,9 @@ value is the I<attribute>. See L<IoC::Container> or the tests for examples.
 
 =head1 METHODS
 
-=over 4
-
 =item C<get>
 
 Returns the actual object the service represents
-
-=back
 
 =head1 BUGS
 
@@ -59,15 +55,9 @@ to http://github.com/jasonmay/perl6-ioc/
 
 =head1 REFERENCE
 
-=over 4
-
 =item L<IoC::Container>
 
-=back
-
 =head1 SEE ALSO
-
-=over 4
 
 =item IoC::ConstructorInjection
 
@@ -75,11 +65,9 @@ to http://github.com/jasonmay/perl6-ioc/
 
 =item IoC::Literal
 
-=back
-
 =head1 AUTHOR
 
-Jason May, E<lt>jason.a.may@gmail.comE<gt>
+Jason May, <jason.a.may@gmail.com>
 
 =head1 LICENSE
 

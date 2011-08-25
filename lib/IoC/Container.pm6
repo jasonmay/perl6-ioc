@@ -75,8 +75,6 @@ See L<IoC> for a more sweetened way to build your container.
 
 =head1 METHODS
 
-=over 4
-
 =item add-service(C<$name>, C<$service>)
 
 Adds a service (L<IoC::Service> object) to your container
@@ -89,8 +87,6 @@ Returns the service provided by the string.
 
 Returns the object the service generates (equivalent to C<fetch('<service>').get()>)
 
-=back
-
 =head1 BUGS
 
 All complex software has bugs lurking in it, and this module is no
@@ -99,15 +95,11 @@ to http://github.com/jasonmay/perl6-ioc/
 
 =head1 REFERENCE
 
-=over 4
-
 =item L<IoC::Service>
-
-=back
 
 =head1 AUTHOR
 
-Jason May, E<lt>jason.a.may@gmail.comE<gt>
+Jason May, <jason.a.may@gmail.com>
 
 =head1 LICENSE
 

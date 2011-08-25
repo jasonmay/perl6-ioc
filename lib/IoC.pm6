@@ -108,8 +108,6 @@ cleanly interact with each other as I<services>.
 
 =head1 EXPORTED FUNCTIONS
 
-=over 4
-
 =item B<container>
 
 Creates a new L<IoC::Container> object. In the block you create your services.
@@ -119,8 +117,6 @@ Creates a new L<IoC::Container> object. In the block you create your services.
 Adds services to your container, bringing your components together. See
 C<IoC::Service> for more information on this.
 
-=back
-
 =head1 BUGS
 
 All complex software has bugs lurking in it, and this module is no
@@ -129,25 +125,17 @@ to http://github.com/jasonmay/perl6-ioc/
 
 =head1 REFERENCE
 
-=over 4
-
 =item L<IoC::Container> - Container of all your application components
 
 =item L<IoC::Service> - Service representing a component in your application
 
-=back
-
 =head1 ACKNOWLEDGEMENTS
-
-=over 4
 
 =item Thanks to Stevan Little who is the original author of Perl 5's Bread::Board
 
-=back
-
 =head1 AUTHOR
 
-Jason May, E<lt>jason.a.may@gmail.comE<gt>
+Jason May, <jason.a.may@gmail.com>
 
 =head1 LICENSE
 
