@@ -36,13 +36,13 @@ sub service($pair) is export {
     }
 
     my $service;
-    if %params.exists(<block>) {
+    if %params<block>:exists {
         $service = IoC::BlockInjection.new(|%params);
     }
-    elsif %params.exists(<type>) {
+    elsif %params<type>:exists {
         $service = IoC::ConstructorInjection.new(|%params);
     }
-    elsif %params.exists(<value>) {
+    elsif %params<value>:exists {
         $service = IoC::Literal.new(|%params);
     }
     else {
