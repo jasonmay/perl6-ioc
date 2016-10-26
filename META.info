@@ -1,4 +1,5 @@
 {
+    "perl"        : "6.*",
     "name"        : "IoC",
     "version"     : "*",
     "description" : "Wire your application components together using inversion of control",
