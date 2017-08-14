@@ -1,4 +1,4 @@
-unit module IoC;
+unit module IoC:ver<0.0.1>:auth<github:jasonmay>;
 
 use IoC::Container;
 use IoC::ConstructorInjection;
