@@ -14,7 +14,7 @@ sub container($pair) is export {
     );
 
     $container-name = $pair.key;
-    
+
     unless $pair.value ~~ Callable {
         die "Second param must be invocable";
     }
