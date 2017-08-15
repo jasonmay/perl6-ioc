@@ -32,7 +32,7 @@ sub service($pair) is export {
         %params<value> = $pair.value;
     }
     else {
-        %params = (%params, $pair.value.pairs);
+        %params.push: $pair.value.pairs;
     }
 
     my $service;
