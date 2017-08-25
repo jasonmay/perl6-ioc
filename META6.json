@@ -19,7 +19,9 @@
   "resources" : [ ],
   "source-type" : "git",
   "source-url" : "git://github.com/jasonmay/perl6-ioc.git",
-  "tags" : [ ],
+  "tags" : [
+    "Dependency Injection"
+  ],
   "test-depends" : [ ],
   "version" : "0.0.1"
 }
