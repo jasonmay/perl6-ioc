@@ -22,6 +22,9 @@
   "tags" : [
     "Dependency Injection"
   ],
-  "test-depends" : [ ],
+  "test-depends" : [
+    "Path::Iterator",
+    "Test::META"
+  ],
   "version" : "0.0.1"
 }
