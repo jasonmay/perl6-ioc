@@ -1,14 +1,26 @@
 use IoC::Service;
 class IoC::BlockInjection does IoC::Service {
-    has Callable $.block;
+    has Code $.block;
+    has %.dependencies;
+    has $.container is rw;
 
     method get {
         if $.lifecycle eq 'Singleton' {
             return (
-                $.instance || self.initialize($!block.())
+                $.instance || self.initialize(self.build-instance());
             );
         }
 
-        return $!block.();
+    }
+
+    method build-instance {
+        \(self) ~~ $!block.signature # callable with this
+            ?? $!block.(self)
+            !! $!block.();
+    }
+
+    method param(Str:D $service-name) {
+        my $service = %.dependencies{$service-name};
+        return $!container.fetch($service).get();
     }
 };

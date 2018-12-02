@@ -24,6 +24,20 @@ $c.add-service(
 );
 
 $c.add-service(
+    'qux', IoC::BlockInjection.new(
+        :type(Bar),
+        :lifecycle('Singleton'),
+        :dependencies({
+            'bar' => 'bar',
+        }),
+        :block(sub ($service) {
+            my $bar = $service.param('bar');
+            return Foo.new( :$bar );
+        }),
+    )
+);
+
+$c.add-service(
     'bar', IoC::BlockInjection.new(
         :type(Bar),
         :lifecycle('Singleton'),
@@ -44,6 +58,8 @@ $c.add-service(
 
 ok($c.fetch('foo').get);
 ok($c.fetch('bar').get);
+
+ok($c.fetch('qux').get);
 
 ok($c.resolve(service => 'foo'));
 
