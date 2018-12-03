@@ -6,7 +6,7 @@ use IoC::BlockInjection;
 use IoC::Literal;
 use Test;
 
-plan 6;
+plan 7;
 
 my $c = IoC::Container.new();
 
