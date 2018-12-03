@@ -11,6 +11,7 @@ class IoC::BlockInjection does IoC::Service {
             );
         }
 
+        return self.build-instance();
     }
 
     method build-instance {
