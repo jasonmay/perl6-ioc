@@ -21,6 +21,10 @@ class IoC::BlockInjection does IoC::Service {
     }
 
     method param(Str:D $service-name) {
+        unless %.dependencies{$service-name}:exists {
+            die "Dependency '$service-name' was not found"
+        }
+
         my $service = %.dependencies{$service-name};
         return $!container.fetch($service).get();
     }
