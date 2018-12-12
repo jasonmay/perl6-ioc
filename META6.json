@@ -1,13 +1,15 @@
 {
+  "auth" : "github:jasonmay",
   "authors" : [
-    "Jason May"
+    "Jason May",
+    "Martin Barth"
   ],
   "build-depends" : [ ],
   "depends" : [ ],
   "description" : "Wire your application components together using inversion of control",
   "license" : "NOASSERTION",
   "name" : "IoC",
-  "perl" : "6.*",
+  "perl" : "6.c",
   "provides" : {
     "IoC" : "lib/IoC.pm6",
     "IoC::BlockInjection" : "lib/IoC/BlockInjection.pm6",
