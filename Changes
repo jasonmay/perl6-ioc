@@ -1,5 +1,7 @@
 Revision history for IoC
 
 {{$NEXT}}
+
+0.0.2  2018-12-13T09:20:47+01:00
     - Parameter support for BlockInjection
     - Initial version on CPAN
