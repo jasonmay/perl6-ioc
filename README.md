@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jasonmay/perl6-ioc.svg?branch=master)](https://travis-ci.org/jasonmay/perl6-ioc)
+[![Build Status](https://travis-ci.org/ufobat/perl6-ioc.svg?branch=master)](https://travis-ci.org/ufobat/perl6-ioc)
 
 NAME
 ====

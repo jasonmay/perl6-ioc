@@ -1,0 +1,5 @@
+Revision history for IoC
+
+{{$NEXT}}
+    - Parameter support for BlockInjection
+    - Initial version on CPAN
