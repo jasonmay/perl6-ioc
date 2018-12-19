@@ -5,7 +5,7 @@ class IoC::BlockInjection does IoC::Service {
     has $.container is rw;
 
     method get {
-        if $.lifecycle eq 'Singleton' {
+        if $.lifecycle ~~ 'Singleton' {
             return (
                 $.instance || self.initialize(self.build-instance());
             );
