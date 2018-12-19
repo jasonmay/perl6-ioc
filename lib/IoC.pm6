@@ -46,7 +46,7 @@ sub service($pair) is export {
         $service = IoC::Literal.new(|%params);
     }
     else {
-        warn "Service {$pair.key} needs more parameters";
+        die "Service '{$pair.key}' needs more parameters";
         return;
     }
 

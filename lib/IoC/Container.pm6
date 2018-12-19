@@ -10,13 +10,14 @@ class IoC::Container {
     }
 
     method fetch(Cool:D $service-name --> Any:D) {
+        unless %!services{$service-name}:exists {
+            die "Service '$service-name' is not known. Available services are { %!services.keys }";
+        }
         return %!services{$service-name};
     }
 
     multi method resolve(Cool:D $service --> Any:D) {
-        my $ioc-service = self.fetch($service);
-        return $ioc-service.get if $ioc-service.defined;
-        die "Service '$service' is not known";
+        return self.fetch($service).get;
     }
     multi method resolve(:$service) {
         return self.resolve($service);
