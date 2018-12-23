@@ -22,7 +22,9 @@
   "source-type" : "git",
   "source-url" : "git://github.com/jasonmay/perl6-ioc.git",
   "tags" : [
-    "Dependency Injection"
+    "Dependency Injection",
+    "Dependency",
+    "Inversion of Control"
   ],
   "test-depends" : [
     "Path::Iterator",
