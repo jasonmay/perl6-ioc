@@ -27,7 +27,7 @@
     "Inversion of Control"
   ],
   "test-depends" : [
-    "Path::Iterator",
+    "Path::Finder",
     "Test::META"
   ],
   "version" : "0.0.3"
